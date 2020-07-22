@@ -50,16 +50,11 @@ p {
 h3 {
     color: white;
     font-size: 6rem;
-    position: relative;
-    flex-grow: 2;
-    padding-top: 2.5rem;
 }
 
 h4 {
     color: white;
     font-size: 2rem;
-    flex-grow: 1;
-    padding-bottom: 2rem;
 }
 
 .container {
@@ -79,6 +74,8 @@ h4 {
 .small-box {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
     flex-grow: 1;
     border: 1px white solid;
 }
