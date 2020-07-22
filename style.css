@@ -27,7 +27,7 @@ img {
     width: 1.5rem;
     height: 1.5rem;
     background-color: #333;
-    position: relative;
+    position: absolute;
     top: 1rem;
     left: 1rem;
     padding: 0.15rem;
