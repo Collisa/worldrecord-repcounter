@@ -16,10 +16,17 @@ html {
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Circular';
+    src: url('fonts/CircularStd-Black.woff2') format('woff2'),
+        url('fonts/CircularStd-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
 body {
     background-color: black;
-    /*overflow: hidden;*/
-    /*top: 2.5rem;*/
+    font-family: Circular;
 }
 
 .flex {
@@ -27,7 +34,7 @@ body {
     flex-direction: column;
     text-align: center;
     flex-grow: 1;
-    justify-content: flex-start;
+    justify-content: center;
     height: 100vh;
 }
 
@@ -63,6 +70,7 @@ h3 {
 h4 {
     color: white;
     font-size: 2rem;
+    font-weight: 400;
 }
 
 .container {
