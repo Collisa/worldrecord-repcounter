@@ -11,7 +11,7 @@ let timerInterval;
 
 
 function handleKeyPress(event) {
-    startClockKeyPress();
+    startClockKeyPress(event);
     if (clockIsStarted) {
         if (event.keyCode === 32 || event.keyCode === 107 || event.keyCode === 38 || event.keyCode === 39){
             number ++;
@@ -33,8 +33,8 @@ function showNumber() {
     teller.innerHTML = numStr;
 }
 
-function startClockKeyPress() {
-    if (event.keyCode === 13 && !clockIsStarted) {
+function startClockKeyPress(event) {
+    if ((event.keyCode === 13 || event.type === "touchend") && !clockIsStarted) {
         start = Math.floor(Date.now() / 1000);
         startClock(start); 
         localStorage.setItem('startTime', start);
@@ -85,3 +85,8 @@ function reNew() {
 window.addEventListener("keyup", handleKeyPress);
 exit.addEventListener("click", reNew);
 initialize();
+
+function test(event) {
+    console.log(event.type)
+}
+window.addEventListener("touchend", handleKeyPress);
