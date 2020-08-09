@@ -3,6 +3,7 @@ const averagePerMin = document.getElementById("average");
 const averagePerHour = document.getElementById("average-hour");
 const time = document.getElementById("time");
 const exit = document.getElementById("exit");
+const body = document.querySelector("body")
 let number = 0;
 let clockIsStarted = false;
 let start;
@@ -11,9 +12,12 @@ let timerInterval;
 
 
 function handleKeyPress(event) {
-    startClockKeyPress(event);
+    if (event.keyCode === 70){
+        console.log("ja")
+        openFullscreen();
+    }
     if (clockIsStarted) {
-        if (event.keyCode === 32 || event.keyCode === 107 || event.keyCode === 38 || event.keyCode === 39){
+        if (event.keyCode === 32 || event.keyCode === 107 || event.keyCode === 38 || event.keyCode === 39 || event.type === "touchend"){
             number ++;
             showNumber();
             localStorage.setItem('number', number);
@@ -24,7 +28,8 @@ function handleKeyPress(event) {
             showNumber();
             localStorage.setItem('number', number);
         } 
-    }
+    } 
+    startClockKeyPress(event);
 }
 
 
@@ -58,7 +63,7 @@ function timeLapse() {
     averagePerHour.innerHTML = averageHour;
     time.innerHTML = `${minutes.toString().padStart(2, "0")}:${timeSeconds.toString().padStart(2, "0")}`;
     
-    if(secondsPassed === 60 * 60){
+    if(secondsPassed >= 60 * 60){
         clearInterval(timerInterval);
     }
 
@@ -80,6 +85,19 @@ function reNew() {
 
     window.location.reload();    
 }
+
+
+function openFullscreen() {
+    if (body.requestFullscreen) {
+      body.requestFullscreen();
+    } else if (body.mozRequestFullScreen) { /* Firefox */
+      body.mozRequestFullScreen();
+    } else if (body.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      body.webkitRequestFullscreen();
+    } else if (body.msRequestFullscreen) { /* IE/Edge */
+      body.msRequestFullscreen();
+    }
+  }
 
 
 window.addEventListener("keyup", handleKeyPress);
