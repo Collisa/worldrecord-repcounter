@@ -27,6 +27,7 @@ html {
 body {
     background-color: black;
     font-family: Circular;
+    font-variant-numeric: tabular-nums lining-nums;
 }
 
 .flex {
